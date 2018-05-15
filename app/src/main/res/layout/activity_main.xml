@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:id="@+id/tvOne"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:background="@drawable/button_shape"/>
 
         <TextView
@@ -47,7 +47,7 @@
             android:layout_height="@dimen/_40sdp"
             android:id="@+id/tvTwo"
             android:layout_marginTop="20dp"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:background="@drawable/button_shape"/>
 
         <TextView
@@ -55,7 +55,7 @@
             android:layout_height="@dimen/_40sdp"
             android:id="@+id/tvThree"
             android:layout_marginTop="20dp"
-            android:visibility="gone"
+            android:visibility="invisible"
             android:background="@drawable/button_shape"/>
 
     </LinearLayout>

@@ -1,7 +1,6 @@
 package com.ashwani.simpledemo;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Animation zoomIn, buttonsZoomIn;
 
-    int count = 0;
+    int count = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                tvOne.setVisibility(View.VISIBLE);
+                tvOne.startAnimation(buttonsZoomIn);
 
+                tvTwo.setVisibility(View.VISIBLE);
+                tvTwo.startAnimation(buttonsZoomIn);
+
+                tvThree.setVisibility(View.VISIBLE);
+                tvThree.startAnimation(buttonsZoomIn);
             }
 
             @Override
@@ -50,12 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+                logoImage.setVisibility(View.VISIBLE);
                 logoImage.startAnimation(zoomIn);
-            }
-        },500);
 
         //for buttons
         buttonsZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),
@@ -64,17 +66,14 @@ public class MainActivity extends AppCompatActivity {
         buttonsZoomIn.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                count++;
-                returnView(count).setVisibility(View.VISIBLE);
+
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if(count < 4) {
-                    count++;
-                    returnView(count).startAnimation(buttonsZoomIn);
-                    returnView(count).setVisibility(View.VISIBLE);
-                }
+
+
+
 
             }
 
@@ -84,16 +83,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tvOne.startAnimation(buttonsZoomIn);
 
     }
 
-    public TextView returnView(int count){
+  /*  public TextView returnView(int count){
         switch (count){
             case 1: return tvOne;
             case 2: return tvTwo;
             case 3: return tvThree;
-            default: return tvOne;
+            default: return null;
         }
-    }
+    }*/
 }
